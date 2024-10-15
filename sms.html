@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><span style="background-color: blue; border-radius: 10px; padding: 5px; color: white;">THE HAWK 2.0</span></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* changed background color to black */
+        }
+        h1 {
+            color: red; /* changed text color to red */
+            text-align: center;
+        }
+        form {
+            max-width: 300px;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 20px; /* rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #333; /* changed background color to a darker shade of black */
+        }
+        input[type="tel"], input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px; /* rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: wash-away 2s infinite;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        #response {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 20px; /* rounded corners */
+            background-color: #f9f9f9;
+        }
+        #logo {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            border-radius: 50%;
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+        #title {
+            text-align: center;
+            color: blue;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        @keyframes wash-away {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(10px);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="logo"></div>
+    <h1 id="title">THE HAWK 2.0</h1>
+    <h1>Gift For All Brothers </h1>
+    <form id="api-form">
+        <input type="tel" id="number" name="phone_number" placeholder="Enter Your Number:"><br><br>
+        <input type="text" id="sms" name="auto_fill" placeholder="Write Message:"><br><br>
+        <input type="submit" value="Send Request">
+    </form>
+    <div id="response"></div>
+
+    <script>
+        const logoDiv = document.getElementById('logo');
+        const logos = [
+            'logo1.png',
+            'logo2.png',
+            'logo3.png',
+            'logo4.png',
+            'logo5.png'
+        ];
+        let currentLogoIndex = 0;
+
+        function changeLogo() {
+            logoDiv.style.backgroundImage = `url(${logos[currentLogoIndex]})`;
+            currentLogoIndex = (currentLogoIndex + 1) % logos.length;
+        }
+
+        setInterval(changeLogo, 10000); // change logo every 10 seconds
+
+        const form = document.getElementById('api-form');
+        const responseDiv = document.getElementById('response');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
